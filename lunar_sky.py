@@ -130,7 +130,6 @@ class LunarObs:
         for i, time in enumerate(utc_times):
             rot = spice.pxform("MOON_ME", "J2000", spice.datetime2et(time))
             pointing[i] = np.matmul(rot, self.OUTWARD_NORMAL)
-        breakpoint()
         return tform.rec_to_lat_lon(*pointing.T)
 
 
